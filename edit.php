@@ -1,5 +1,9 @@
 <?php
 include("include.php");
+if(!isset($_SESSION["user"])){
+    print_r('asd');
+    echo '<script>window.location = "index.php";</script>';
+}
 ?>
 <div class="container mregister">
     <div id="login">
@@ -10,7 +14,7 @@ include("include.php");
                 if (empty($_POST['name'])){
                     echo 'ERROR: no such element!';
                 } else if(empty($_POST['id'])) {
-                    $name = $_POST['name'];
+                    $name = "'".$_POST['name']."'";
                     $sth = $pdo->prepare("SELECT * FROM `data` WHERE `name` = ".$name);
                     $sth->execute();
                     $find = $sth->fetch();
@@ -65,7 +69,7 @@ include("include.php");
                     $find = $pdo->lastInsertId();
                     print_r($sth);
                     if ($find == 0) {
-                        header("Location: data_admin.php");
+                        echo '<script>window.location = "data_admin.php";</script>';
                         return;
                     } else {
                         echo 'ERROR: can\'t edit!';

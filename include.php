@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +14,6 @@
 </head>
 <body>
 <?php
-session_start();
 if(!isset($_SESSION["user"])){
     echo '<p><a href="login.php">Войти</a> в систему</p>';
     echo '<p><a href="register.php">Зарегистрироваться</a> в систему</p>';

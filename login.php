@@ -1,9 +1,8 @@
 <?php
-session_start();
 include("include.php");
 
 if(isset($_SESSION["user"])){
-    header("Location: index.php");
+    echo '<script>window.location = "index.php";</script>';
 }
 ?>
 <div class="container mregister">
@@ -19,7 +18,7 @@ if(isset($_SESSION["user"])){
                 $find = $sth->fetch();
                 if (password_verify($password, $find['password'])) {
                     $_SESSION['user'] = $find['username'];
-                    header("Location: index.php");
+                    echo '<script>window.location = "index.php";</script>';
                 } else {
                     echo 'ERROR: Invalid username or password!';
                 }

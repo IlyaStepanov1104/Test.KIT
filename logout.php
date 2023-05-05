@@ -1,5 +1,5 @@
 <?php
-session_start();
-unset($_SESSION['session_username']);
+include 'include.php';
+unset($_SESSION['user']);
 session_destroy();
-header("location:index.php");
+echo '<script>window.location = "index.php";</script>';

@@ -1,5 +1,8 @@
 <?php
 include("include.php");
+if(!isset($_SESSION["user"])){
+    echo '<script>window.location = "index.php";</script>';
+}
 ?>
 <div class="container mregister">
     <div id="login">
@@ -25,7 +28,7 @@ include("include.php");
                         $search->execute();
                         $childs = array_merge($childs, $search->fetchAll(PDO::FETCH_ASSOC));
                     } while (count($childs) != false);
-                    header("Location: data_admin.php");
+                    echo '<script>window.location = "data_admin.php";</script>';
                 }
             } else {
                 echo 'ERROR: parameter name is required!';

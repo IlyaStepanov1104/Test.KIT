@@ -1,9 +1,8 @@
 <?php
-session_start();
 include("include.php");
 
 if(isset($_SESSION["user"])){
-    header("Location: index.php");
+    echo '<script>window.location = "index.php";</script>';
 }
 ?>
 <body>
@@ -27,7 +26,7 @@ if(isset($_SESSION["user"])){
                     echo 'ERROR: Invalid username or password!';
                 } else {
                     $_SESSION['user']=$_POST['username_register'];
-                    header("Location: index.php");
+                    echo '<script>window.location = "index.php";</script>';
                 }
             } else {
                 echo 'ERROR: All parameters are required!';

@@ -1,5 +1,8 @@
 <?php
 include("include.php");
+if(!isset($_SESSION["user"])){
+    echo '<script>window.location = "index.php";</script>';
+}
 ?>
 <div class="container mregister">
     <div id="login">
@@ -30,7 +33,7 @@ include("include.php");
                 if ($find == 0){
                     echo 'ERROR: Can\'t add!';
                 } else {
-                    header("Location: data_admin.php");
+                    echo '<script>window.location = "data_admin.php";</script>';
                 }
             } else {
                 echo 'ERROR: parameter name is required!';
